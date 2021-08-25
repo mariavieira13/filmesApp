@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar color="dark">
     <ion-title>
-      Filmes
+      {{titulo}}
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -11,51 +11,28 @@
 
   <ion-list>
 
-    <ion-item-sliding>
-    <ion-item lines="full">
+    <ion-item-sliding *ngFor="let filme of listaFilmes">
+    <ion-item lines="full" [routerLink]="filme.pagina">
       <ion-thumbnail slot="start">
-        <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/g4UUR4K3e1gfifF8dNorAUoqU5Y.jpg">
+        <img 
+        [src]="filme.cartaz"
+        />
       </ion-thumbnail>
       <ion-label class="ion-text-wrap">
         <div>
-          <h1>One Direction: This Is Us (2013)</h1>
-          <p>13/09/2013 (BR) - 1h 32m</p>
-          <p>Documentário, Música</p>
+          <h1>{{filme.nome}}</h1>
+          <p>{{filme.lancamento}} - {{filme.duracao}}</p>
+          <ion-badge color="light" *ngFor="let genero of filme.generos">{{genero}}</ion-badge>
         </div>
       </ion-label>
 
       <ion-chip color="success" outline>
-        <ion-label>85%</ion-label>
+        <ion-label>{{filme.classificacao}}</ion-label>
       </ion-chip>    
     </ion-item>
 
     <ion-item-options side="end">
-      <ion-item-option (click)="exibirAlertaFavorito()">
-        <ion-icon slot="icon-only" name="star"></ion-icon>
-      </ion-item-option>
-    </ion-item-options>
-  </ion-item-sliding>
-
-  <ion-item-sliding>
-    <ion-item lines="full">
-      <ion-thumbnail slot="start">
-        <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/wC3qjKzQTZ5yHEkTTyjsoRS0gir.jpg">
-      </ion-thumbnail>
-      <ion-label class="ion-text-wrap">
-        <div>
-          <h1>One Direction: Where We Are (2014)</h1>
-          <p>11/10/2014 (US) - 1h 46m</p>
-          <p>Documentário, Música</p>
-        </div>
-      </ion-label>
-
-      <ion-chip color="success" outline>
-        <ion-label>85%</ion-label>
-      </ion-chip>    
-    </ion-item>
-
-    <ion-item-options side="end">
-      <ion-item-option (click)="exibirAlertaFavorito()">
+      <ion-item-option color="dark" (click)="exibirAlertaFavorito()">
         <ion-icon slot="icon-only" name="star"></ion-icon>
       </ion-item-option>
     </ion-item-options>
