@@ -13,6 +13,10 @@ const routes: Routes = [
   {
     path: 'one-direction-where-we-are',
     loadChildren: () => import('./filmes/one-direction-where-we-are/one-direction-where-we-are.module').then( m => m.OneDirectionWhereWeArePageModule)
+  },
+  {
+    path: 'dados-filme',
+    loadChildren: () => import('./dados-filme/dados-filme.module').then( m => m.DadosFilmePageModule)
   }
 ];
 @NgModule({

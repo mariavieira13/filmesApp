@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { ToastController } from '@ionic/angular';
 import { IFilme } from '../models/IFilme.model';
+import { DadosService } from '../services/dados.service';
+import { FilmeService } from '../services/filme.service';
 
 
 @Component({
@@ -11,7 +14,7 @@ import { IFilme } from '../models/IFilme.model';
 })
 export class Tab1Page {
 
-   titulo = 'Vídeos';
+  titulo = 'Vídeos';
 
   listaFilmes: IFilme[] = [
     {
@@ -34,7 +37,31 @@ export class Tab1Page {
     }
   ];
 
-  constructor(public alertController: AlertController, public toastController: ToastController) {}
+  
+
+  constructor(
+    public alertController: AlertController,
+    public toastController: ToastController,
+    public dadosService: DadosService,
+    public filmeService: FilmeService,
+    public route: Router) { }
+
+    buscarFilmes(evento: any) {
+      console.log(evento.target.value);
+      const busca = evento.target.value;
+       if(busca && busca.trim() !== ''){
+         this.filmeService.buscarFilmes(busca).subscribe(dados=>{
+           console.log(dados);
+  
+         });
+       }
+    }
+
+    exibirFilme(filme: IFilme) {
+      this.dadosService.guardarDados('filme', filme);
+      this.route.navigateByUrl('/dados-filme'); 
+    }
+
 
   async exibirAlertaFavorito() {
     const alert = await this.alertController.create({
@@ -50,7 +77,7 @@ export class Tab1Page {
         }, {
           text: 'Sim, favoritar',
           handler: () => {
-           this.apresentarToast();
+            this.apresentarToast();
           }
         }
       ]
