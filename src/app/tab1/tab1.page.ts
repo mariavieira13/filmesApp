@@ -34,6 +34,33 @@ export class Tab1Page {
       cartaz: 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/wC3qjKzQTZ5yHEkTTyjsoRS0gir.jpg',
       generos: ['Documentário', 'Música'],
       pagina: '/one-direction-where-we-are'
+    },
+    {
+      nome: 'Cidades de Papel (2015)',
+      lancamento: '09/07/2015 ',
+      duracao: '1h 50m',
+      classificacao: 61,
+      cartaz: 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/4th6QFCdko42nuAVK9yu2d9ikFQ.jpg',
+      generos: ['Mistério', 'Drama', 'Romance'],
+      pagina: '/cidades-de-papel'
+    },
+    {
+      nome: 'Tudo e Todas as Coisas (2017)',
+      lancamento: '19/05/2017',
+      duracao: '1h 36m',
+      classificacao: 73,
+      cartaz: 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/24NQ87f9LI5Md9vSkSCtpRPiFAq.jpg',
+      generos: ['Drama', 'Romance'],
+      pagina: '/tudo-e-todas-as-coisas'
+    },
+    {
+      nome: 'Orgulho e Preconceito (2005)',
+      lancamento: '10/02/2006',
+      duracao: '2h 8m',
+      classificacao: 81,
+      cartaz: 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/dmnY0Zs8uMSHkMiol7M3xOlvvkK.jpg',
+      generos: ['Drama', 'Romance'],
+      pagina: '/orgulho-e-preconceito'
     }
   ];
 
